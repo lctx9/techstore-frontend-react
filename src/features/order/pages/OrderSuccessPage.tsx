@@ -1,0 +1,8 @@
+import React from 'react';
+import { CheckCircle2, ClipboardList, ShoppingBag } from 'lucide-react';
+import { Link, useSearchParams } from 'react-router-dom';
+
+export const OrderSuccessPage: React.FC = () => {
+  const [search] = useSearchParams(); const orderId = search.get('orderId');
+  return <div className="mx-auto flex min-h-[560px] max-w-[1240px] items-center justify-center px-4"><section className="w-full max-w-[520px] rounded border border-[#d6dce8] bg-white p-9 text-center shadow-[0_4px_16px_rgba(15,39,76,.12)]"><CheckCircle2 className="mx-auto h-16 w-16 rounded-xl bg-[#edf3ff] p-3 text-[#0752b8]"/><h1 className="mt-6 text-2xl font-extrabold">Đặt hàng thành công!</h1><p className="mt-2 text-sm text-[#5f6a7c]">Cảm ơn bạn đã mua sắm tại TechPro. Đơn hàng của bạn đang được xử lý.</p><div className="mt-6 grid grid-cols-2 gap-4 rounded border border-[#d9dfeb] bg-[#fafbfe] p-4 text-left text-xs"><div><p className="text-[9px] text-[#7b8595]">MÃ ĐƠN HÀNG</p><strong>#TP-{orderId || '...'}</strong></div><div><p className="text-[9px] text-[#7b8595]">DỰ KIẾN GIAO HÀNG</p><strong>3 - 5 ngày làm việc</strong></div><div className="col-span-2 border-t pt-3"><p className="text-[9px] text-[#7b8595]">EMAIL XÁC NHẬN</p><span>Đã gửi tới email của bạn</span></div></div><div className="mt-6 flex justify-center gap-3"><Link to="/products" className="flex items-center gap-2 bg-[#0752b8] px-4 py-3 text-xs font-bold text-white"><ShoppingBag size={14}/>Tiếp tục mua sắm</Link>{orderId && <Link to="/orders" className="flex items-center gap-2 border border-[#0752b8] px-4 py-3 text-xs font-bold text-[#0752b8]"><ClipboardList size={14}/>Xem đơn hàng</Link>}</div></section></div>;
+};

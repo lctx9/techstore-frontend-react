@@ -1,0 +1,108 @@
+/* ═══════════════════════════════════════════════════════════
+   HomePage — Mega-Menu Flyout panel styling
+   ═══════════════════════════════════════════════════════════ */
+
+/* Category aside menu wrap */
+.mega-menu-aside {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #dfe5ef;
+  border-radius: 8px;
+  padding: 0.25rem 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  z-index: 10;
+}
+
+.mega-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+  color: #475569;
+  text-decoration: none;
+  font-weight: 550;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.15s ease-in-out;
+}
+
+.mega-menu-item:last-child {
+  border-bottom: none;
+}
+
+.mega-menu-item:hover {
+  background: #f1f5f9;
+  color: #0752b8;
+}
+
+/* Flyout panel */
+.mega-menu-panel {
+  position: absolute;
+  left: 100%;
+  top: -1px;
+  width: 580px;
+  min-height: calc(100% + 2px);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  z-index: 20;
+  animation: fadeIn 0.18s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(5px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Show panel on item hover */
+.mega-menu-item-container {
+  position: static; /* Required for the absolute panel to position relative to .mega-menu-aside */
+}
+
+.mega-menu-item-container:hover .mega-menu-panel {
+  display: grid;
+}
+
+/* Column group layout */
+.mega-col-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mega-col-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1.5px solid #edf1f7;
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.25rem;
+}
+
+.mega-col-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.mega-col-link {
+  font-size: 0.75rem;
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.15s;
+  font-weight: 500;
+}
+
+.mega-col-link:hover {
+  color: #0752b8;
+  text-decoration: underline;
+}

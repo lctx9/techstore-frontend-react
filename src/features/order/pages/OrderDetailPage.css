@@ -1,0 +1,358 @@
+/* ═══════════════════════════════════════════════════════════
+   OrderDetailPage — Premium Checkout/Order Detail UI
+   ═══════════════════════════════════════════════════════════ */
+
+.odt-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  text-align: left;
+}
+
+.odt-back-link {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0752b8;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.odt-back-link:hover {
+  text-decoration: underline;
+}
+
+.odt-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.odt-title-row h1 {
+  font-size: 1.75rem;
+  font-weight: 850;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.odt-title-row p {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 4px 0 0 0;
+  font-weight: 500;
+}
+
+.odt-status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #eff6ff;
+  color: #0752b8;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Grid Layout */
+.odt-layout {
+  display: grid;
+  grid-template-columns: 1.85fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .odt-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.odt-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Card classes */
+.odt-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 1.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.odt-card h2 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Timeline/Shipping status */
+.odt-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  padding-left: 0.75rem;
+}
+
+/* vertical connector line */
+.odt-timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: #e2e8f0;
+  z-index: 1;
+}
+
+.odt-timeline-step {
+  display: flex;
+  gap: 1.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+.odt-timeline-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #94a3b8;
+}
+
+.odt-timeline-step--completed .odt-timeline-icon {
+  background: #0752b8;
+  border-color: #0752b8;
+  color: #ffffff;
+}
+
+.odt-timeline-step--active .odt-timeline-icon {
+  background: #eff6ff;
+  border-color: #0752b8;
+  color: #0752b8;
+}
+
+.odt-timeline-step--active .odt-timeline-icon::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0752b8;
+}
+
+.odt-timeline-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.odt-timeline-title {
+  font-size: 0.88rem;
+  font-weight: 750;
+  color: #475569;
+}
+
+.odt-timeline-step--completed .odt-timeline-title,
+.odt-timeline-step--active .odt-timeline-title {
+  color: #0f172a;
+}
+
+.odt-timeline-desc {
+  font-size: 0.75rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.odt-timeline-time {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-top: 1px;
+}
+
+/* Products card list */
+.odt-products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.odt-product-row {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.odt-product-row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.odt-prod-img {
+  width: 64px;
+  height: 64px;
+  background: #f8fafc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #e2e8f0;
+}
+
+.odt-prod-details {
+  flex-grow: 1;
+}
+
+.odt-prod-name {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.odt-prod-attr {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin: 3px 0 0 0;
+}
+
+.odt-prod-qty {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin: 4px 0 0 0;
+}
+
+.odt-prod-price {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* Right sidebar info blocks */
+.odt-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.odt-sidebar-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.odt-sidebar-card h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.odt-sidebar-card h3 svg {
+  color: #64748b;
+}
+
+/* Summary breakdown */
+.odt-summary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  border-bottom: 1px solid #edf1f7;
+  padding-bottom: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.odt-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.odt-summary-row--total {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.odt-summary-row--total .odt-total-price {
+  color: #0752b8;
+  font-size: 1.25rem;
+}
+
+/* Delivery recipient block */
+.odt-address-text {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+/* Payment breakdown */
+.odt-payment-text {
+  font-size: 0.8rem;
+  color: #475569;
+  margin: 0 0 4px 0;
+}
+
+/* Cancel order button */
+.odt-cancel-btn {
+  width: 100%;
+  height: 40px;
+  background: #ffffff;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.odt-cancel-btn:hover:not(:disabled) {
+  background: #fef2f2;
+  border-color: #ef4444;
+}
+
+.odt-cancel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #e2e8f0;
+  color: #94a3b8;
+}
+
+.odt-cancel-hint {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-align: center;
+  margin-top: 6px;
+  line-height: 1.3;
+}

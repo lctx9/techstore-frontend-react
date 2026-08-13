@@ -1,0 +1,418 @@
+/* ═══════════════════════════════════════════════════════════
+   CheckoutPage — Premium Checkout UI
+   ═══════════════════════════════════════════════════════════ */
+
+.chk-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  text-align: left;
+}
+
+.chk-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #edf1f7;
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.chk-header h1 {
+  font-size: 1.5rem;
+  font-weight: 850;
+  color: #0752b8;
+  letter-spacing: -0.02em;
+}
+
+.chk-header-badge {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* Grid Layout */
+.chk-layout {
+  display: grid;
+  grid-template-columns: 1.95fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .chk-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.chk-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Section Cards */
+.chk-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 1.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.chk-card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 1.5rem 0;
+}
+
+.chk-card-title svg {
+  color: #0752b8;
+}
+
+/* Fields grid */
+.chk-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .chk-fields-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.chk-field-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.chk-field-wrapper--wide {
+  grid-column: span 2;
+}
+
+@media (max-width: 600px) {
+  .chk-field-wrapper--wide {
+    grid-column: span 1;
+  }
+}
+
+.chk-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 0.45rem;
+  letter-spacing: 0.3px;
+}
+
+.chk-input,
+.chk-select {
+  height: 42px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 0 0.85rem;
+  font-size: 0.85rem;
+  color: #1e293b;
+  outline: none;
+  background: #ffffff;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.chk-input:focus,
+.chk-select:focus {
+  border-color: #0752b8;
+  box-shadow: 0 0 0 2px rgba(7, 82, 184, 0.08);
+}
+
+.chk-input::placeholder {
+  color: #94a3b8;
+}
+
+/* Payment Methods */
+.chk-payment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.chk-payment-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+}
+
+.chk-payment-option:hover {
+  border-color: #93c5fd;
+}
+
+.chk-payment-option--selected {
+  border-color: #0752b8;
+  background: #f6f9ff;
+}
+
+.chk-payment-radio {
+  margin-top: 0.25rem;
+  width: 16px;
+  height: 16px;
+  accent-color: #0752b8;
+  cursor: pointer;
+}
+
+.chk-payment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.chk-payment-title {
+  font-size: 0.9rem;
+  font-weight: 750;
+  color: #1e293b;
+}
+
+.chk-payment-desc {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* Payment Info Hint Box */
+.chk-payment-hint {
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  background: #eff6ff;
+  border: 1px dashed #bfdbfe;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #1e40af;
+}
+
+/* Sidebar Order Summary */
+.chk-sidebar {
+  position: sticky;
+  top: 90px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.chk-sidebar h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 1.25rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.chk-items-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 240px;
+  overflow-y: auto;
+  margin-bottom: 1.25rem;
+  padding-right: 0.25rem;
+}
+
+.chk-item-row {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.chk-item-img-placeholder {
+  width: 48px;
+  height: 48px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #e2e8f0;
+}
+
+.chk-item-meta {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.chk-item-name {
+  font-size: 0.8rem;
+  font-weight: 750;
+  color: #1e293b;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chk-item-qty {
+  font-size: 0.7rem;
+  color: #64748b;
+  margin: 2px 0 0 0;
+}
+
+.chk-item-price {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* Coupon section */
+.chk-coupon-wrap {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.chk-coupon-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 0.35rem;
+}
+
+.chk-coupon-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chk-coupon-input {
+  flex-grow: 1;
+  min-width: 0;
+  height: 36px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 0 0.65rem;
+  font-size: 0.8rem;
+  outline: none;
+  background: #f8fafc;
+}
+
+.chk-coupon-btn {
+  height: 36px;
+  padding: 0 1rem;
+  background: #475569;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.chk-coupon-btn:hover {
+  background: #334155;
+}
+
+/* Summary Rows */
+.chk-summary-rows {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.chk-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.chk-summary-row--total {
+  border-top: 1px solid #f1f5f9;
+  margin-top: 0.75rem;
+  padding-top: 1rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.chk-total-price {
+  color: #0752b8;
+  font-size: 1.35rem;
+}
+
+.chk-submit-btn {
+  width: 100%;
+  height: 48px;
+  background: #0752b8;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 750;
+  cursor: pointer;
+  margin-top: 1.25rem;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.chk-submit-btn:hover {
+  background: #053c87;
+}
+
+.chk-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.chk-footnote {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 0.75rem;
+  line-height: 1.4;
+}
+
+.chk-footnote a {
+  color: #0752b8;
+  text-decoration: underline;
+}
+
+/* Error banner */
+.chk-error-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
